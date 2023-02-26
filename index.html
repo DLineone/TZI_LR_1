@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="input largeblock">
+            <div class="dropfile" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                Преместите файл
+            </div>
+            <p> или выберите его: </p>
+            <input type="file" class="inputfile" onchange="fileInputHandler(event);">
+        </div>
+        <textarea style="resize: both;" rows="5" cols="40" class="inputtext largeblock"></textarea>
+        <div class="inputkey largeblock">
+            <p>Введите ключи, разделяя пробелами:</p>
+            <textarea style="resize: both;" rows="5" cols="40" class="inputkeys"></textarea>
+        </div>
+        <button class="codebutton largeblock" onclick="codeText();">Шифровать</button>
+        <button class="savecodebutton largeblock" onclick="saveCodetText('CodedText');">Сохранить</button>
+        <textarea style="resize: both;" rows="5" cols="40" class="outputcodetext largeblock"></textarea>
+        <button class="decodebutton largeblock" onclick="decodeText();">Дешифровать</button>
+        <button class="savedecodebutton largeblock" onclick="saveDecodetText('DecodedText');">Сохранить</button>
+        <textarea style="resize: both;" rows="5" cols="40" class="outputdecodetext largeblock"></textarea>
+    </div>
+</body>
+</html>
