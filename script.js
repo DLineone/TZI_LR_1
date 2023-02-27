@@ -37,6 +37,34 @@ function dragOverHandler(event) {
   event.preventDefault();
 }
 
+const textAreas = document.querySelectorAll("textarea");
+
+[...textAreas].map((textArea)=>
+{
+  textArea.addEventListener("dragover", (event)=>
+  {
+    event.preventDefault();
+  });
+  
+  textArea.addEventListener("drop", (event)=>
+  {
+    console.log('File(s) dropped');
+    event.preventDefault();
+
+    if (event.dataTransfer.items) {
+
+      const file = event.dataTransfer.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        event.target.value = reader.result
+          .replace(/[^a-zA-Z \.\r\n]/g, "")
+          .toLowerCase();
+      }
+      reader.readAsText(file);
+    }
+  });
+});
+
 function codeText()
 {
   let text = inputtext.value;
